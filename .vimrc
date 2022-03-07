@@ -1,9 +1,7 @@
-"highlight PmenuSel guifg=#009999
 set foldcolumn=0
 set signcolumn=no
 set ttimeoutlen=10
-
-
+set cursorline
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -22,7 +20,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'dunstontc/vim-vscode-theme'
 Plugin 'rakr/vim-one'
 Plugin 'bling/vim-bufferline'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plugin 'honza/vim-snippets'
 Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -41,15 +39,15 @@ set guioptions-=r               "隐藏右侧滚动条"
 set guioptions-=L               "隐藏左侧滚动条"
 set guioptions-=b               "隐藏底部滚动条"
 set langmenu=zh_CN.UTF-8        "显示中文菜单
+set backspace=0
 " 变成辅助 -------------------------------------
 syntax on                       "开启语法高亮
 colorscheme slate
 set wrap                        "设置代码折行"
 set fileformat=unix             "设置以unix的格式保存文件"
 set cindent                     "设置C样式的缩进格式"
-set tabstop=4                   "一个 tab 显示出来是多少个空格，默认 8
-set shiftwidth=4                "每一级缩进是多少个空格
-set backspace+=indent,eol,start "set backspace&可以对其重置
+set tabstop=2                   "一个 tab 显示出来是多少个空格，默认 8
+set shiftwidth=2                "每一级缩进是多少个空格
 set showmatch                   "显示匹配的括号"
 set scrolloff=5                 "距离顶部和底部5行"
 set laststatus=1                "命令行为一行"
@@ -65,9 +63,7 @@ set textwidth=200
 set clipboard=unnamed           "支持系统粘贴板"
 highlight VertSplit ctermbg=100 ctermfg=100
 
-" set autoindent
 " ESC取消上次高亮
-" nnoremap <esc> :noh<return><esc>
 " 按照PEP8标准来配置vim
 au BufNewFile,BufRead *.py set tabstop=4 |set softtabstop=4|set shiftwidth=4|set textwidth=79|set expandtab|set autoindent|set fileformat=unix
 
@@ -94,7 +90,6 @@ let g:bufferline_show_bufnr = 0
 let g:solarized_termtrans = 1
 set background=light
 colorscheme solarized
-" hi Quote ctermbg=120 guifg=#90EE90
 
 " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " use <tab> for trigger completion and navigate to the next complete item
@@ -110,19 +105,17 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Quickly Run
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <F5> :call CompileRunGcc()<CR>
 
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
-        exec '!g++-10 % -o a.out -std=c++17'
+        exec '!g++ % -o a.out -std=c++17'
         exec '!time ./a.out'
     elseif &filetype == 'cpp'
-        exec '!g++-10 % -o a.out'
+        exec '!g++ % -o a.out'
         exec '!time ./a.out'
     elseif &filetype == 'python'
         exec '!time python %'
