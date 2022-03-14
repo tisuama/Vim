@@ -71,13 +71,11 @@ let g:indentLine_enabled = 1
 
 " vim-airline 
 set t_Co=256
-" let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 noremap <F2> :bprev<CR>
 noremap <F1> :bnext<CR>
 
 " bufferline
-" let g:bufferline_inactive_highlight = 'StatusLineNC'
 let g:bufferline_show_bufnr = 0
 
 " theme
