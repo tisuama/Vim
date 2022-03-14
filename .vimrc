@@ -10,7 +10,6 @@ call vundle#begin()
 " call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'Yggdroot/indentLine'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -18,7 +17,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'dunstontc/vim-vscode-theme'
-Plugin 'rakr/vim-one'
 Plugin 'bling/vim-bufferline'
 Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plugin 'honza/vim-snippets'
@@ -61,7 +59,6 @@ set incsearch
 set hlsearch                    "高亮搜索项"
 set textwidth=200
 set clipboard=unnamed           "支持系统粘贴板"
-highlight VertSplit ctermbg=100 ctermfg=100
 
 " ESC取消上次高亮
 " 按照PEP8标准来配置vim
@@ -75,10 +72,7 @@ let g:indentLine_enabled = 1
 " vim-airline 
 set t_Co=256
 " let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
 let g:airline_theme='solarized'
-" let g:airline_theme='one'
 noremap <F2> :bprev<CR>
 noremap <F1> :bnext<CR>
 
@@ -106,7 +100,6 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Quickly Run
-
 map <F5> :call CompileRunGcc()<CR>
 
 func! CompileRunGcc()
