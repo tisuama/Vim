@@ -31,7 +31,6 @@ set backspace=0
 syntax on                       "开启语法高亮
 set wrap                        "设置代码折行"
 set fileformat=unix             "设置以unix的格式保存文件"
-set cindent                     "设置C样式的缩进格式"
 set tabstop=2                   "一个 tab 显示出来是多少个空格，默认 8
 set shiftwidth=2                "每一级缩进是多少个空格
 set showmatch                   "显示匹配的括号"
