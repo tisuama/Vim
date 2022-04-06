@@ -113,10 +113,6 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-if &term =~ "xterm"
-    let &t_ti = "\<Esc>[?47h"
-    let &t_te = "\<Esc>[?47l"
-endif
 
 set modeline
 set modelines=6
