@@ -1,7 +1,8 @@
 set foldcolumn=0
 set signcolumn=no
-set ttimeoutlen=10
 set cursorline
+set modeline
+set modelines=6
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -31,8 +32,8 @@ set backspace=0
 syntax on                       "开启语法高亮
 set wrap                        "设置代码折行"
 set fileformat=unix             "设置以unix的格式保存文件"
-set tabstop=2                   "一个 tab 显示出来是多少个空格，默认 8
-set shiftwidth=2                "每一级缩进是多少个空格
+set tabstop=4                   "一个 tab 显示出来是多少个空格，默认 8
+set shiftwidth=4                "每一级缩进是多少个空格
 set showmatch                   "显示匹配的括号"
 set scrolloff=5                 "距离顶部和底部5行"
 set laststatus=1                "命令行为一行"
@@ -113,6 +114,3 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-
-set modeline
-set modelines=6
