@@ -1,8 +1,4 @@
-set foldcolumn=0
-set signcolumn=no
-set cursorline
-set modeline
-set modelines=6
+" Tisuama's vim config
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,6 +15,13 @@ Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" 设置 by Tisuama
+set foldcolumn=0
+set signcolumn=no
+set cursorline
+set modelines=6
+set ttimeoutlen=10
 
 " 设置外观 -------------------------------------
 set number                      "显示行号 
