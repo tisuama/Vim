@@ -13,6 +13,7 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-l
 Plugin 'honza/vim-snippets'
 Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'sainnhe/everforest'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -56,7 +57,7 @@ au BufNewFile,BufRead *.py set tabstop=4 |set softtabstop=4|set shiftwidth=4|set
 
 " vim-airline 
 set t_Co=256
-let g:airline_theme='solarized'
+let g:airline_theme='everforest'
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
@@ -66,10 +67,26 @@ noremap <F1> :bnext<CR>
 " bufferline
 let g:bufferline_show_bufnr = 0
 
-" theme
-let g:solarized_termtrans = 1
+" theme solarized
+" let g:solarized_termtrans = 1
+" set background=light
+" colorscheme solarized
+
+" theme everforest
+" For light version.
 set background=light
-colorscheme solarized
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'soft'
+" For better performance
+let g:everforest_better_performance = 1
+let g:everforest_disable_terminal_colors = 1
+if (has("termguicolors"))
+  set termguicolors
+endif
+colorscheme everforest
+
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
