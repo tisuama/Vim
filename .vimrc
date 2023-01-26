@@ -53,6 +53,7 @@ set clipboard=unnamed           "支持系统粘贴板"
 
 " ESC取消上次高亮
 " 按照PEP8标准来配置vim
+" expandtab的作用是用空格来表示缩进，noexpandtab的作用是使用制表符来表示缩进
 au BufNewFile,BufRead *.py set tabstop=4 |set softtabstop=4|set shiftwidth=4|set textwidth=79|set expandtab|set autoindent|set fileformat=unix
 
 " vim-airline 
@@ -61,16 +62,9 @@ let g:airline_theme='everforest'
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 noremap <F2> :bprev<CR>
 noremap <F1> :bnext<CR>
-
-" bufferline
-let g:bufferline_show_bufnr = 0
-
-" theme solarized
-" let g:solarized_termtrans = 1
-" set background=light
-" colorscheme solarized
 
 " theme everforest
 " For light version.
@@ -78,7 +72,7 @@ set background=light
 " Set contrast.
 " This configuration option should be placed before `colorscheme everforest`.
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:everforest_background = 'soft'
+let g:everforest_background = 'medium'
 " For better performance
 let g:everforest_better_performance = 1
 let g:everforest_disable_terminal_colors = 1
