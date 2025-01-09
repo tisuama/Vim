@@ -36,8 +36,10 @@ set backspace=0
 syntax on                       "开启语法高亮
 set wrap                        "设置代码折行"
 set fileformat=unix             "设置以unix的格式保存文件"
-set tabstop=4                   "一个 tab 显示出来是多少个空格，默认 8
-set shiftwidth=4                "每一级缩进是多少个空格
+" 将 TAB 键设置为 4 个空格
+set tabstop=4                   "设置 Tab 的显示宽度为 4 个空格
+set shiftwidth=4                "设置自动缩进的宽度为 4 个空格
+set expandtab                   "将 Tab 转换为空格
 set showmatch                   "显示匹配的括号"
 set scrolloff=5                 "距离顶部和底部5行"
 set laststatus=1                "命令行为一行"
@@ -50,11 +52,6 @@ set ignorecase                  "忽略大小写"
 set incsearch
 set hlsearch                    "高亮搜索项"
 set clipboard=unnamed           "支持系统粘贴板"
-
-" ESC取消上次高亮
-" 按照PEP8标准来配置vim
-" expandtab的作用是用空格来表示缩进，noexpandtab的作用是使用制表符来表示缩进
-au BufNewFile,BufRead *.py set tabstop=4 |set softtabstop=4|set shiftwidth=4|set textwidth=79|set expandtab|set autoindent|set fileformat=unix
 
 " vim-airline 
 set t_Co=256
@@ -94,25 +91,6 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Quickly Run
-map <F5> :call CompileRunGcc()<CR>
-
-func! CompileRunGcc()
-    exec "w"
-    if &filetype == 'c'
-        exec '!g++ % -o a.out -std=c++17'
-        exec '!time ./a.out'
-    elseif &filetype == 'cpp'
-        exec '!g++ % -o a.out'
-        exec '!time ./a.out'
-    elseif &filetype == 'python'
-        exec '!time python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc
-
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
